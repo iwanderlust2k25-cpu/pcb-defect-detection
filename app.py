@@ -16,7 +16,7 @@ uploaded_file = st.file_uploader("Choose a PCB image...", type=["jpg", "jpeg", "
 if uploaded_file is not None:
     # Read image
     image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Uploaded PCB Image", use_column_width=True)
+    st.image(image, caption="Uploaded PCB Image", use_container_width=True)
 
     # Convert to OpenCV format
     img_array = np.array(image)
@@ -27,7 +27,7 @@ if uploaded_file is not None:
     # Draw detections on the image
     annotated_img = results[0].plot()  # ultralytics provides plot()
 
-    st.image(annotated_img, caption="Defect Detection Results", use_column_width=True)
+    st.image(annotated_img, caption="Defect Detection Results", use_container_width=True)
 
     # Show predictions in text
     st.subheader("Detections:")
